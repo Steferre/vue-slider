@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+    <div id="mainContainer">
+       <div class="wrapper" @keyup.left="pressKeyBoardLeft()" @keyup.right="switchToPrev">
+           <div class="arrow_box">
+                <i class="glyphicon glyphicon-chevron-left" @click="switchToPrev()"></i>
+           </div>
+           <div class="central_box">
+                <div class="photo_container">
+                    <img :src="citiesImg[currentActive]" alt="immagini di città">
+                    <div class="dot_box">
+                        <div class="dot" v-for="i in citiesImg" :style=""></div>
+                    </div>
+                </div>
+           </div>
+           <div class="arrow_box">
+                <i class="glyphicon glyphicon-chevron-right" @click="switchToNext()"></i>
+           </div>
+       </div> 
+    </div>
+
+    <script src="script/myscript.js"></script>
+</body>
+</html>
