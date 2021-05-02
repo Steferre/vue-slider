@@ -13,7 +13,9 @@
 </head>
 <body>
     <div id="mainContainer">
-       <div class="wrapper" @keyup.left="pressKeyBoardLeft()" @keyup.right="switchToPrev">
+       <div class="wrapper"
+       @mouseover="stopAutoChangeImg"
+       @mouseout="startAutoChangeImg">
            <div class="arrow_box">
                 <i class="glyphicon glyphicon-chevron-left" @click="switchToPrev()"></i>
            </div>
@@ -21,7 +23,8 @@
                 <div class="photo_container">
                     <img :src="citiesImg[currentActive]" alt="immagini di città">
                     <div class="dot_box">
-                        <div class="dot" v-for="i in citiesImg" :style=""></div>
+                        <div class="dot" v-for="i in citiesImg"
+                        :style="(i === citiesImg[currentActive] ? {'background-color':'blue'} : {'background-color':'white'} )"></div>
                     </div>
                 </div>
            </div>

@@ -17,7 +17,7 @@ const app = new Vue(
                 "img/newyork.jpg" 
             ],
             currentActive: 0,
-            isActive: false                                                                        
+            timer: null                                                                        
         },
         methods: {
             switchToNext() {
@@ -36,43 +36,12 @@ const app = new Vue(
                     this.currentActive = this.citiesImg.length - 1;
                 }
             },
-            getFullDot() {
-                for(let i = 0; i < this.citiesImg.length; i++) {
-                    if(i === this.currentActive) {
-                        this.isActive = true;
-                    }
-                }
+            startAutoChangeImg() {
+                this.timer= setInterval(this.switchToNext, 3000);
             },
-            pressKeyBoardLeft: function () {
-                console.log('ho premuto la freccia sinistra della tastiera');
-            }
-
+            stopAutoChangeImg() {
+                clearInterval(this.timer);
+            },
         }
     }
-
 )
-
-/*
-towns: [
-    {
-        townName: "Londra",
-        townImg: "img/londra.jpg"
-    },
-    {
-        townName: "Milano",
-        townImg: "img/milano.jpg"
-    },
-    {
-        townName: "Parigi",
-        townImg: "img/parigi.jpg"
-    },
-    {
-        townName: "Sydney",
-        townImg: "img/sydney.jpg"
-    },
-    {
-        townName: "New York",
-        townImg: "img/newyork.jpg"
-    }
-]
-*/
