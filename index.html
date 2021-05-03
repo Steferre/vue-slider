@@ -13,9 +13,11 @@
 </head>
 <body>
     <div id="mainContainer">
-       <div class="wrapper"
-       @mouseover="stopAutoChangeImg"
-       @mouseout="startAutoChangeImg">
+        <div class="wrapper" tabindex="-1" 
+            @keyup.left="switchToPrev()"
+            @keyup.right="switchToNext()"
+            @mouseover="stopAutoChangeImg"
+            @mouseout="startAutoChangeImg"> <!-- tabindex importante se no non funziona-->
            <div class="arrow_box">
                 <i class="glyphicon glyphicon-chevron-left" @click="switchToPrev()"></i>
            </div>
@@ -23,8 +25,9 @@
                 <div class="photo_container">
                     <img :src="citiesImg[currentActive]" alt="immagini di città">
                     <div class="dot_box">
-                        <div class="dot" v-for="i in citiesImg"
-                        :style="(i === citiesImg[currentActive] ? {'background-color':'blue'} : {'background-color':'white'} )"></div>
+                        <div class="dot" v-for="(i, index) in citiesImg"
+                        :style="(i === citiesImg[currentActive] ? {'background-color':'blue'} : {'background-color':'white'} )"
+                        @click="changeImgWithDotClick(index)"></div>
                     </div>
                 </div>
            </div>

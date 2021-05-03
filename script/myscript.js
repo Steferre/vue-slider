@@ -42,6 +42,19 @@ const app = new Vue(
             stopAutoChangeImg() {
                 clearInterval(this.timer);
             },
+            changeImgWithDotClick(imgIndex) {
+                this.currentActive = imgIndex;
+            }
+
+        },
+        // per poter applicare il keyup fuori da un input devo rendere focus il mio slider
+        mounted() {
+            // salvo in una costante l'elemento html su cui voglio attivare il focus
+            const htmlElement = document.querySelector(".wrapper");
+
+            // applico il focus
+
+            htmlElement.focus();
         }
     }
 )

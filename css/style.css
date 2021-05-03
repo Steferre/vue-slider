@@ -10,6 +10,11 @@
     display: flex;
 }
 
+.wrapper:focus,
+.wrapper:active {
+    outline: none;
+}
+
 .arrow_box {
     display: flex;
     justify-content: center;
